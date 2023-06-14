@@ -7,4 +7,5 @@ public interface IgreetingService {
     Greeting addGreeting(User user);
 
     String getMessage();
+    Greeting getGreetingById(long id);
 }
