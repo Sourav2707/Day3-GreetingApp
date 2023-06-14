@@ -1,6 +1,9 @@
 package com.bridgelabz.mygreetingapp.controller;
 
 import com.bridgelabz.mygreetingapp.entity.Greeting;
+import com.bridgelabz.mygreetingapp.entity.User;
+import com.bridgelabz.mygreetingapp.service.IgreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,10 +12,16 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 public class GreetingController {
+    @Autowired
+    IgreetingService greetingService;
 
-    private final AtomicLong counter = new AtomicLong();
     @GetMapping("/greeting")
-    public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return new Greeting(counter.incrementAndGet(), "Hello "+name+"!");
+    public String greeting(@RequestParam(value="name", defaultValue = "World") String name) {
+        User user = new User();
+        user.setName(name);
+        greetingService.addGreeting(user);
+        return greetingService.getMessage();
+
     }
+
 }

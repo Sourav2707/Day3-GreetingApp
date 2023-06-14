@@ -2,21 +2,18 @@ package com.bridgelabz.mygreetingapp.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
-public class Greeting {
-@Id
+@NoArgsConstructor
+@ToString
+public class User {
+    @Id
     private long id;
-private String message;
-
-    public Greeting() {
-
-    }
+    private String name;
 }
