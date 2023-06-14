@@ -14,6 +14,8 @@ public class GreetingService implements IgreetingService {
     String message;
     @Autowired
     private GreetingRepository greetingRepository;
+
+    //we have already used the save method in previous UC3, so there is no change in UC4
     @Override
     public Greeting addGreeting(User user) {
         if(user.getFirstName() == null && user.getLastName() == null)
