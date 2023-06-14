@@ -47,4 +47,10 @@ public class GreetingService implements IgreetingService {
         editValue.setMessage(message);
         return greetingRepository.save(editValue);
     }
+
+    @Override
+    public String deleteGreeting(long id) {
+        greetingRepository.deleteById(id);
+        return "Deleted "+id+" successfully";
+    }
 }
