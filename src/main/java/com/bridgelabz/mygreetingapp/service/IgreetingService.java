@@ -11,4 +11,6 @@ public interface IgreetingService {
     String getMessage();
     Greeting getGreetingById(long id);
     List<Greeting> getAllGreeting();
+
+    Greeting editGreeting(long id, String message);
 }
